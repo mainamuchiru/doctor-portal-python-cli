@@ -101,6 +101,6 @@ class Diagnosis:
             "symptoms": self.symptoms,
             "disease": self.disease,
             "prevention": self.prevention,
-            "medication": self.medication
+            "medication": self.medicaion
         }    
         return storage_engine.save_diagnosis(diagnosis_data)
