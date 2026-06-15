@@ -351,5 +351,6 @@ if __name__ == "__main__":
         ]
         save_doctors(doctors)
 
+    
     doctor = doctor_login_form(doctors)
     run_doctor_cli(doctor)
