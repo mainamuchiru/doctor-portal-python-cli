@@ -94,7 +94,22 @@ class Diagnosis:
         if not self.disease:
             print("[!] Cannot save an incomplete diagnosis session.")
             return False
-        diagnosis_data={
+
+    def show_summary(self):
+        print("\n" + "=" * 40)
+        print("DIAGNOSIS SUMMARY")
+        print("=" * 40)
+        print("Session ID :", self.session_id)
+        print("Patient ID :", self.patient_id)
+        print("Doctor ID  :", self.doctor_id)
+        print("Symptoms   :", ", ".join(self.symptoms))
+        print("Disease    :", self.disease)
+        print("Prevention :", self.prevention)
+        print("Medication :", self.medication)
+        print("=" * 40)
+
+    def to_dict(self):
+        return {
             "session_id": self.session_id,
             "patient_id": self.patient_id,
             "doctor_id": self.doctor_id,
