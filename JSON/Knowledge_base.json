@@ -1,0 +1,46 @@
+{
+    "diseases": [
+        {
+            "name":"Malaria",
+            "symptoms":["fever","chills","headache","sweating"],
+            "prevention":"Use instecticide-treated nets, clear stagnant water.",
+            "medication":"Artemisinin-based Combination Therapy (ACT)"
+        },
+        {
+            "name":"Tuberculosis (TB)",
+            "symptoms":["chronic cough","chest pain","weight loss","night sweats"],
+            "prevention":"BCG vaccination, good ventilation, wearing of face masks",
+            "medication":"Antibiotics (Isoniazid Rifampicin) for 6 months"
+        },
+        {
+            "name":"Typoid",
+            "symptoms":["chronic cough","headache","abdominal pain","constipation"],
+            "prevention":"Drink safe treated water, proper sanitation, handwashing",
+            "medication":"Antibiotics (Ciprofloxacin or Azithromycin)"
+        },
+        {
+            "name":"Common Cold",
+            "symptoms":["runny nose","sneezing","sore throat","mild cough"],
+            "prevention":"Avoid close contact, wash hands frequently",
+            "medication":"Rest, hydration, pain relievers (paracetamol)"
+        },
+        {
+            "name":"Bilharzia",
+            "symptoms":["severe watery diarrhea","vomiting","dehydration","muscle cramps"],
+            "prevention":"Drink boiled/chlorinated water, safe food preparation",
+            "medication":"Oral Rehydration Salts(ORS), Intravenous fluids, Zinc supplements"
+        },
+        {
+            "name":"Bilharzia",
+            "symptoms":["abdominal pain","bloody urine","bloody stool","fever"],
+            "prevention":"Avoid swimming or wading in fresh water infested with snails",
+            "medication":"Praziquantel"
+        },
+        {
+            "name":"Amoebiasis",
+            "symptoms":["abdominal pain","bloody diarrhea","fatigue","weight loss"],
+            "prevention":"Proper sewage disposal, wash vegetables and fruits with clean water",
+            "medication":"Mentronidazole()Flagyl"
+        }
+    ]
+}
