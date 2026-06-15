@@ -24,9 +24,9 @@ class Diagnosis:
     @disease.setter
     def disease(self, value):
         """ Setter: Ensures the disease value is a non-empty string."""
-        if not isinstance(value, str) or value.strip()="":
+        if not isinstance(value, str) or value.strip()=="":
                 raise ValueError("[!] Invalid data: Disease name must be a valid text string ")
-            self._disease=value.strip()
+        self._disease=value.strip()
 
     @property
     def medication(self):
@@ -47,7 +47,7 @@ class Diagnosis:
         symptom=input("Enter symptom to search: ")
         self._symptoms = symptom # This saves the string into your class attribute!
  
-        matches=storage_engine.search_diseases_by_symptom(self.symptoms)
+        matches=storage_engine.search_diseases_by_symptom(self._symptoms)
         print("\nMatching Diseases Found")
         if not matches:
             print("[!] No matching diseases found for that symptom.Please try again")
@@ -67,7 +67,7 @@ class Diagnosis:
                 return True
 
             else:
-                print(F"[!]Invalid selection number.")
+                print("[!]Invalid selection number.")
                 return False
 
         except ValueError:
@@ -101,6 +101,6 @@ class Diagnosis:
             "symptoms": self.symptoms,
             "disease": self.disease,
             "prevention": self.prevention,
-            "medication": self.medicaion
+            "medication": self.medication
         }    
         return storage_engine.save_diagnosis(diagnosis_data)
