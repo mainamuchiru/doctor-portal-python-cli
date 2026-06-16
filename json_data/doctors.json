@@ -124,5 +124,53 @@
         "admin_id": "admin1",
         "password": "713bfda78870bf9d1b261f565286f85e97ee614efe5f0faf7c34e7ca4f65baca",
         "role": "admin"
+    },
+    "kerry": {
+        "name": "kerry",
+        "doctor_id": "kerry",
+        "password": "a33576d8674bf9d2e86864141122a5ce486429dc1adb336ddb3d1336bb60fa1a",
+        "role": "doctor"
+    },
+    "ok": {
+        "name": "ok",
+        "doctor_id": "ok",
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "role": "doctor"
+    },
+    "lp": {
+        "name": "lp",
+        "doctor_id": "lp",
+        "password": "0a7aacae9b43f934498185566d2a865ef93d4f4c4488c60d085f5b268c949825",
+        "role": "doctor"
+    },
+    "love": {
+        "name": "love",
+        "doctor_id": "love",
+        "password": "686f746a95b6f836d7d70567c302c3f9ebb5ee0def3d1220ee9d4e9f34f5e131",
+        "role": "doctor"
+    },
+    "testpwd": {
+        "name": "Test PW",
+        "doctor_id": "testpwd",
+        "password": "6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090",
+        "role": "doctor"
+    },
+    "testpw2": {
+        "name": "testpw",
+        "doctor_id": "testpw2",
+        "password": "fcf730b6d95236ecd3c9fc2d92d7b6b2bb061514961aec041d6c7a7192f592e4",
+        "role": "doctor"
+    },
+    "alice1": {
+        "name": "alice",
+        "doctor_id": "alice1",
+        "password": "9b8769a4a742959a2d0298c36fb70623f2dfacda8436237df08d8dfd5b37374c",
+        "role": "doctor"
+    },
+    "wrwre": {
+        "name": "werwe",
+        "doctor_id": "wrwre",
+        "password": "091f4741da397d09e6de9e39f16e627c53c8de150aad32a98d46f8b77813a2e4",
+        "role": "doctor"
     }
 }
