@@ -1,0 +1,35 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#E8F4F8" stroke="#0066CC" stroke-width="2"/>
+  
+  <!-- Medical cross background -->
+  <g fill="#0066CC" opacity="0.1">
+    <rect x="85" y="45" width="30" height="110" rx="5"/>
+    <rect x="45" y="85" width="110" height="30" rx="5"/>
+  </g>
+  
+  <!-- Stethoscope -->
+  <g stroke="#0066CC" stroke-width="3" fill="none" stroke-linecap="round">
+    <!-- Left earpiece -->
+    <circle cx="75" cy="55" r="6"/>
+    <!-- Right earpiece -->
+    <circle cx="125" cy="55" r="6"/>
+    <!-- Tubes connecting -->
+    <path d="M 75 61 Q 75 75, 100 75 Q 125 75, 125 61"/>
+    <!-- Main tube -->
+    <path d="M 100 75 Q 100 110, 100 130"/>
+    <!-- Diaphragm circle -->
+    <circle cx="100" cy="145" r="12" stroke="#0066CC" stroke-width="3" fill="none"/>
+  </g>
+  
+  <!-- Plus sign (medical) -->
+  <g fill="#FF6B6B" opacity="0.8">
+    <rect x="155" y="145" width="6" height="20" rx="2"/>
+    <rect x="149" y="151" width="18" height="6" rx="2"/>
+  </g>
+  
+  <!-- Title text -->
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0066CC">
+    Doctor Portal
+  </text>
+</svg>
