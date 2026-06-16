@@ -1,0 +1,67 @@
+{
+    "ddc6948e-9ffb-457a-9039-0943c564c76f": {
+        "session_id": "ddc6948e-9ffb-457a-9039-0943c564c76f",
+        "patient_id": "cbd5ecfe-f321-4481-a86c-6a40854d0637",
+        "doctor_id": "678",
+        "diagnosis": "",
+        "status": "completed",
+        "date_time": "2026-06-16 18:56:23",
+        "notes": [
+            {
+                "timestamp": "2026-06-16 18:56:31",
+                "note": "jgjfj"
+            }
+        ],
+        "start_time": "2026-06-16 18:56:23",
+        "end_time": "2026-06-16 18:56:31"
+    },
+    "a466639c-e67c-420d-a9b0-7d515ed8b14b": {
+        "session_id": "a466639c-e67c-420d-a9b0-7d515ed8b14b",
+        "patient_id": "43b5b3f7-8f5e-4015-8fee-bfce59126aa3",
+        "doctor_id": "678",
+        "diagnosis": "",
+        "status": "cancelled",
+        "date_time": "2026-06-16 18:57:28",
+        "notes": [],
+        "start_time": "2026-06-16 18:57:28",
+        "end_time": null
+    },
+    "f4e0b9da-ac25-45e7-a4ea-b5414c4cb693": {
+        "session_id": "f4e0b9da-ac25-45e7-a4ea-b5414c4cb693",
+        "patient_id": "cbd5ecfe-f321-4481-a86c-6a40854d0637",
+        "doctor_id": "678",
+        "diagnosis": "",
+        "status": "in-progress",
+        "date_time": "2026-06-16 19:04:09",
+        "notes": [],
+        "start_time": "2026-06-16 19:04:09",
+        "end_time": null
+    },
+    "06c9acc9-74ef-4280-a480-497615984d34": {
+        "session_id": "06c9acc9-74ef-4280-a480-497615984d34",
+        "patient_id": "cbd5ecfe-f321-4481-a86c-6a40854d0637",
+        "doctor_id": "678",
+        "diagnosis": "",
+        "status": "in-progress",
+        "date_time": "2026-06-16 19:05:44",
+        "notes": [],
+        "start_time": "2026-06-16 19:05:44",
+        "end_time": null
+    },
+    "d346752c-1680-489b-bc35-8ef7c36810c6": {
+        "session_id": "d346752c-1680-489b-bc35-8ef7c36810c6",
+        "patient_id": "cbd5ecfe-f321-4481-a86c-6a40854d0637",
+        "doctor_id": "678",
+        "diagnosis": "",
+        "status": "completed",
+        "date_time": "2026-06-16 19:08:31",
+        "notes": [
+            {
+                "timestamp": "2026-06-16 19:08:47",
+                "note": "patient very ill"
+            }
+        ],
+        "start_time": "2026-06-16 19:08:31",
+        "end_time": "2026-06-16 19:08:47"
+    }
+}

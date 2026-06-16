@@ -2,10 +2,15 @@ import json
 import os
 import uuid
 from datetime import datetime
+from pathlib import Path
+
+
 
 
 class Session:
     STORAGE_FILE = "session.json"
+
+
 
     def __init__(self, patient_id, doctor_id, diagnosis="", date_time=None):
         self.session_id = str(uuid.uuid4())
