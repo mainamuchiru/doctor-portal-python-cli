@@ -64,5 +64,80 @@
         "notes": [],
         "start_time": "2026-06-16 13:54:13",
         "end_time": "2026-06-16 13:54:17"
+    },
+    "faba41e1-8879-4b8a-8527-4545eb9f3e72": {
+        "session_id": "faba41e1-8879-4b8a-8527-4545eb9f3e72",
+        "patient_id": "43b5b3f7-8f5e-4015-8fee-bfce59126aa3",
+        "doctor_id": "678",
+        "diagnosis": "Malaria",
+        "status": "completed",
+        "date_time": "2026-06-16 14:17:09",
+        "notes": [
+            {
+                "timestamp": "2026-06-16 14:17:36",
+                "note": "patient was sick"
+            }
+        ],
+        "start_time": "2026-06-16 14:17:09",
+        "end_time": "2026-06-16 14:17:36"
+    },
+    "d8b68c38-bee7-40d6-aeca-47e64bff7197": {
+        "session_id": "d8b68c38-bee7-40d6-aeca-47e64bff7197",
+        "patient_id": "d176297d-425d-4ae9-b4f1-077f0df0f901",
+        "doctor_id": "678",
+        "diagnosis": "Malaria",
+        "status": "completed",
+        "date_time": "2026-06-16 18:50:22",
+        "notes": [
+            {
+                "timestamp": "2026-06-16 18:50:35",
+                "note": "patient very sick"
+            }
+        ],
+        "start_time": "2026-06-16 18:50:22",
+        "end_time": "2026-06-16 18:50:35"
+    },
+    "ddc6948e-9ffb-457a-9039-0943c564c76f": {
+        "session_id": "ddc6948e-9ffb-457a-9039-0943c564c76f",
+        "patient_id": "cbd5ecfe-f321-4481-a86c-6a40854d0637",
+        "doctor_id": "678",
+        "diagnosis": "Malaria",
+        "status": "completed",
+        "date_time": "2026-06-16 18:56:23",
+        "notes": [
+            {
+                "timestamp": "2026-06-16 18:56:31",
+                "note": "jgjfj"
+            }
+        ],
+        "start_time": "2026-06-16 18:56:23",
+        "end_time": "2026-06-16 18:56:31"
+    },
+    "a466639c-e67c-420d-a9b0-7d515ed8b14b": {
+        "session_id": "a466639c-e67c-420d-a9b0-7d515ed8b14b",
+        "patient_id": "43b5b3f7-8f5e-4015-8fee-bfce59126aa3",
+        "doctor_id": "678",
+        "diagnosis": "",
+        "status": "cancelled",
+        "date_time": "2026-06-16 18:57:28",
+        "notes": [],
+        "start_time": "2026-06-16 18:57:28",
+        "end_time": null
+    },
+    "d346752c-1680-489b-bc35-8ef7c36810c6": {
+        "session_id": "d346752c-1680-489b-bc35-8ef7c36810c6",
+        "patient_id": "cbd5ecfe-f321-4481-a86c-6a40854d0637",
+        "doctor_id": "678",
+        "diagnosis": "Bilharzia",
+        "status": "completed",
+        "date_time": "2026-06-16 19:08:31",
+        "notes": [
+            {
+                "timestamp": "2026-06-16 19:08:47",
+                "note": "patient very ill"
+            }
+        ],
+        "start_time": "2026-06-16 19:08:31",
+        "end_time": "2026-06-16 19:08:47"
     }
 }

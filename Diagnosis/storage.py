@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from doctor import Doctor
-from patient import Patient
+from Diagnosis.doctor import Doctor
+from Diagnosis.patient import Patient
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 JSON_DIR = BASE_DIR / "json"
