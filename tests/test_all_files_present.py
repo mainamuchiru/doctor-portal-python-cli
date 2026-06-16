@@ -1,9 +1,9 @@
 import sys
 import os
-from doctor import Doctor
-from patient import Patient
-from diagnosis import Diagnosis
-from session import Session
+from Diagnosis.doctor import Doctor
+from Diagnosis.patient import Patient
+from Diagnosis.diagnosis import Diagnosis
+from Diagnosis.session import Session
 from StorageEngine import StorageEngine
 
 def run_system_diagnostic():
