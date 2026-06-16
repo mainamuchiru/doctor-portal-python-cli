@@ -17,12 +17,9 @@ class Session:
         self.notes = []
         self._start_time = None
         self._end_time = None
-
         self._save_to_json()
 
-
     def _load_all(self):
-        
         if not os.path.exists(self.STORAGE_FILE):
             return {}
         with open(self.STORAGE_FILE, "r") as f:
@@ -32,7 +29,6 @@ class Session:
                 return {}
 
     def _save_to_json(self):
-        
         all_sessions = self._load_all()
         all_sessions[self.session_id] = self._to_dict()
         with open(self.STORAGE_FILE, "w") as f:
@@ -40,7 +36,6 @@ class Session:
         print(f"[Storage] Session {self.session_id} saved to '{self.STORAGE_FILE}'")
 
     def _to_dict(self):
-        
         return {
             "session_id": self.session_id,
             "patient_id": self.patient_id,
@@ -53,7 +48,8 @@ class Session:
             "end_time": self._end_time,
         }
 
-    
+    def to_dict(self):
+        return self._to_dict()
 
     def update_status(self, new_status):
         valid_statuses = ["referred", "in-progress", "completed", "cancelled"]
@@ -83,10 +79,8 @@ class Session:
         print(f"Session ended at: {self._end_time}")
         return self._end_time
 
-
     @classmethod
     def load_all_sessions(cls):
-       
         if not os.path.exists(cls.STORAGE_FILE):
             return []
         with open(cls.STORAGE_FILE, "r") as f:

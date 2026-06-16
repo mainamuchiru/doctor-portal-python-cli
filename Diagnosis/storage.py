@@ -6,8 +6,7 @@ from doctor import Doctor
 from patient import Patient
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-JSON_DIR = BASE_DIR / "JSON"
+JSON_DIR = BASE_DIR / "json"
 
 DOCTORS_FILE = JSON_DIR / "doctors.json"
 PATIENTS_FILE = JSON_DIR / "patients.json"
@@ -17,7 +16,6 @@ DISEASES_FILE = JSON_DIR / "knowledge_base.json"
 
 
 def load_json(filename: Path) -> Dict[str, Any]:
-    """Load a JSON object from disk, returning an empty store when missing."""
     try:
         if not filename.exists():
             return {}
@@ -82,6 +80,7 @@ def get_all_patients() -> List[Patient]:
     patients = load_json(PATIENTS_FILE)
     return [Patient.from_dict(data) for data in patients.values()]
 
+
 def get_patient_by_name(name: str) -> Optional[Patient]:
     patients = load_json(PATIENTS_FILE)
     name = name.strip().lower()
@@ -135,14 +134,15 @@ def delete_patient(patient_id: str) -> bool:
     diagnoses = load_json(DIAGNOSES_FILE)
     save_json(
         DIAGNOSES_FILE,
-        {key: value for key, value in diagnoses.items() if value.get("patient_id") != patient_id},
+        {k: v for k, v in diagnoses.items() if v.get("patient_id") != patient_id},
     )
 
     sessions = load_json(SESSIONS_FILE)
     save_json(
         SESSIONS_FILE,
-        {key: value for key, value in sessions.items() if value.get("patient_id") != patient_id},
+        {k: v for k, v in sessions.items() if v.get("patient_id") != patient_id},
     )
+
     return True
 
 
@@ -155,7 +155,7 @@ def save_diagnosis(diagnosis_dict: Dict[str, Any]) -> Dict[str, Any]:
 
 def get_patient_diagnoses(patient_id: str) -> List[Dict[str, Any]]:
     diagnoses = load_json(DIAGNOSES_FILE)
-    return [diagnosis for diagnosis in diagnoses.values() if diagnosis.get("patient_id") == patient_id]
+    return [d for d in diagnoses.values() if d.get("patient_id") == patient_id]
 
 
 def save_session(session_dict: Dict[str, Any]) -> Dict[str, Any]:
@@ -167,24 +167,31 @@ def save_session(session_dict: Dict[str, Any]) -> Dict[str, Any]:
 
 def get_patient_sessions(patient_id: str) -> List[Dict[str, Any]]:
     sessions = load_json(SESSIONS_FILE)
-    return [session for session in sessions.values() if session.get("patient_id") == patient_id]
+    return [s for s in sessions.values() if s.get("patient_id") == patient_id]
 
-def search_diseases_by_symptom(symptom: str) -> List[Dict[str, Any]]:
+
+def search_diseases_by_symptom(symptom: str):
     if not DISEASES_FILE.exists():
         return []
 
-    with DISEASES_FILE.open("r", encoding="utf-8") as file:
-        try:
-            diseases = json.load(file)
-        except json.JSONDecodeError:
-            return []
+    try:
+        with DISEASES_FILE.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+    except json.JSONDecodeError:
+        return []
 
-    symptom = symptom.lower().strip()
+    symptoms_input = [s.strip().lower() for s in symptom.split(",")]
+
+    diseases = data.get("diseases", [])
     matches = []
 
     for disease in diseases:
-        symptoms = disease.get("symptoms", "")
-        if symptom in symptoms.lower():
+        if not isinstance(disease, dict):
+            continue
+
+        disease_symptoms = [s.lower() for s in disease.get("symptoms", [])]
+
+        if any(s in disease_symptoms for s in symptoms_input):
             matches.append(disease)
 
     return matches

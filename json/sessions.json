@@ -1,15 +1,4 @@
 {
-    "82c3d03c-516b-4600-8f62-54e5ac5bbf0e": {
-        "session_id": "82c3d03c-516b-4600-8f62-54e5ac5bbf0e",
-        "patient_id": "43b5b3f7-8f5e-4015-8fee-bfce59126aa3",
-        "doctor_id": "678",
-        "diagnosis": "",
-        "status": "completed",
-        "date_time": "2026-06-16 13:20:55",
-        "notes": [],
-        "start_time": "2026-06-16 13:20:55",
-        "end_time": "2026-06-16 13:20:59"
-    },
     "ae1b6169-6c49-43de-a452-a978118af694": {
         "session_id": "ae1b6169-6c49-43de-a452-a978118af694",
         "patient_id": "43b5b3f7-8f5e-4015-8fee-bfce59126aa3",
@@ -20,28 +9,6 @@
         "notes": [],
         "start_time": "2026-06-16 13:22:53",
         "end_time": "2026-06-16 13:22:56"
-    },
-    "6cbf0f44-2247-4a7b-9178-9f2b0dc62da6": {
-        "session_id": "6cbf0f44-2247-4a7b-9178-9f2b0dc62da6",
-        "patient_id": "43b5b3f7-8f5e-4015-8fee-bfce59126aa3",
-        "doctor_id": "678",
-        "diagnosis": "",
-        "status": "in-progress",
-        "date_time": "2026-06-16 13:23:33",
-        "notes": [],
-        "start_time": "2026-06-16 13:23:33",
-        "end_time": null
-    },
-    "a6ac72ff-85ab-441d-a107-60a2b72f96e0": {
-        "session_id": "a6ac72ff-85ab-441d-a107-60a2b72f96e0",
-        "patient_id": "43b5b3f7-8f5e-4015-8fee-bfce59126aa3",
-        "doctor_id": "678",
-        "diagnosis": "",
-        "status": "in-progress",
-        "date_time": "2026-06-16 13:28:32",
-        "notes": [],
-        "start_time": "2026-06-16 13:28:32",
-        "end_time": null
     },
     "234e23a4-3708-4126-8478-5c834939df5c": {
         "session_id": "234e23a4-3708-4126-8478-5c834939df5c",
