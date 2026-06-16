@@ -116,46 +116,78 @@ def interactive_menu():
     user = None
     while True:
         if not user:
-            write("\n1. Register Doctor\n2. Login\n3. Exit")
-            choice = Prompt.ask("Choose an option", choices=["1", "2", "3"]) if Prompt else input("Choose (1-3): ")
+            write("\n[bold cyan]=== MEDICAL PORTAL SYSTEM ===[/bold cyan]")
+            write("1. Register New Doctor")
+            write("2. Login to Portal")
+            write("3. Exit System")
+            
+            choice = Prompt.ask("Select an option (1-3)", choices=["1", "2", "3"], default="3")
             
             if choice == "1":
-                name = Prompt.ask("Name") if Prompt else input("Name: ")
-                doc_id = Prompt.ask("Doctor ID") if Prompt else input("ID: ")
-                pw = Prompt.ask("Password", password=True) if Prompt else input("Password: ")
+                write("\n[bold]-- Doctor Registration --[/bold]")
+                name = Prompt.ask("Enter Full Name")
+                doc_id = Prompt.ask("Enter Desired Doctor ID")
+                pw = Prompt.ask("Enter Password", password=True)
                 cmd_register_doctor(argparse.Namespace(name=name, doctor_id=doc_id, password=pw))
             elif choice == "2":
-                doc_id = Prompt.ask("Doctor ID") if Prompt else input("ID: ")
-                pw = Prompt.ask("Password", password=True) if Prompt else input("Password: ")
+                write("\n[bold]-- Doctor Login --[/bold]")
+                doc_id = Prompt.ask("Doctor ID")
+                pw = Prompt.ask("Password", password=True)
                 user = storage.login_user(doc_id, pw)
                 if user:
-                    write(f"[bold green]Welcome Dr. {user.name}![/bold green]")
+                    write(f"\n[bold green]Success! Welcome Dr. {user.name}[/bold green]")
                 else:
-                    write("[bold red]Login failed.[/bold red]")
+                    write("\n[bold red]Error: Invalid credentials.[/bold red]")
             elif choice == "3":
+                write("Exiting... Goodbye!")
                 break
         else:
-            write(f"\n[bold blue]Main Menu (Dr. {user.name})[/bold blue]")
-            write("1. Add Patient\n2. List Patients\n3. Match Diagnosis\n4. Logout\n5. Exit")
-            choice = Prompt.ask("Choose", choices=["1", "2", "3", "4", "5"]) if Prompt else input("Choose (1-5): ")
+            write(f"\n[bold blue]=== MAIN MENU (Dr. {user.name}) ===[/bold blue]")
+            write("1. Add New Patient")
+            write("2. List All Patients")
+            write("3. Match Diagnosis (Symptom Search)")
+            write("4. Record Consultation Session")
+            write("5. Logout")
+            write("6. Exit System")
+            
+            choice = Prompt.ask("Select an option (1-6)", choices=["1", "2", "3", "4", "5", "6"], default="2")
             
             if choice == "1":
+                write("\n[bold]-- Add New Patient --[/bold]")
                 name = Prompt.ask("Patient Name")
-                phone = Prompt.ask("Phone")
+                phone = Prompt.ask("Phone Number")
                 dob = Prompt.ask("DOB (YYYY-MM-DD)")
-                h = Prompt.ask("Height (optional)", default="")
-                w = Prompt.ask("Weight (optional)", default="")
+                h = Prompt.ask("Height (cm, optional)", default="")
+                w = Prompt.ask("Weight (kg, optional)", default="")
                 cmd_add_patient(argparse.Namespace(name=name, phone=phone, dob=dob, height=h, weight=w))
             elif choice == "2":
                 cmd_list_patients()
             elif choice == "3":
-                syms = Prompt.ask("Enter symptoms (comma separated)").split(",")
-                cmd_match_diagnosis(argparse.Namespace(symptoms=[s.strip() for s in syms]))
+                write("\n[bold]-- Match Diagnosis --[/bold]")
+                syms = Prompt.ask("Enter symptoms separated by commas (e.g. fever, headache)")
+                cmd_match_diagnosis(argparse.Namespace(symptoms=[s.strip() for s in syms.split(",") if s.strip()]))
             elif choice == "4":
-                user = None
-                write("Logged out.")
+                write("\n[bold]-- Record Session --[/bold]")
+                patient_id = Prompt.ask("Enter Patient ID")
+                patient = Patient.get_by_id(patient_id)
+                if not patient:
+                    write("[bold red]Error: Patient not found.[/bold red]")
+                    continue
+                
+                diagnosis = Prompt.ask("Enter Final Diagnosis")
+                notes = Prompt.ask("Enter Session Notes")
+                
+                session = Session(patient_id, user.user_id, diagnosis)
+                session.start_session()
+                session.add_notes(notes)
+                session.end_session()
+                write(f"[bold green]Session recorded successfully for {patient.name}.[/bold green]")
             elif choice == "5":
-                break
+                user = None
+                write("Logged out successfully.")
+            elif choice == "6":
+                write("Exiting... Goodbye!")
+                sys.exit(0)
 
 # --- Parser Setup ---
 
