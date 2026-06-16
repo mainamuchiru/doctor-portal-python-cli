@@ -59,12 +59,27 @@ class Patient:
             "weight": self.weight,
         }
 
+    def save(self) -> "Patient":
+        """Persist the current patient instance to storage."""
+        from data import storage
+        return storage.save_patient(self)
+
+    @classmethod
+    def get_all(cls) -> List["Patient"]:
+        """Retrieve all patients from storage."""
+        from data import storage
+        return storage.get_all_patients()
+
+    @classmethod
+    def get_by_id(cls, patient_id: str) -> Optional["Patient"]:
+        """Find a specific patient by their ID."""
+        from data import storage
+        return storage.get_patient_by_id(patient_id)
+
+    def delete(self) -> bool:
+        """Remove the current patient from storage."""
+        from data import storage
+        return storage.delete_patient(self.patient_id)
+
     def __str__(self) -> str:
         return f"Patient[{self.patient_id}]: {self.name}, DOB: {self.date_of_birth}"
-
-
-class PatientDeleter:
-    @staticmethod
-    def delete_patient(patient_id: str) -> bool:
-        import storage
-        return storage.delete_patient(patient_id)

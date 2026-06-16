@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from data import storage
-from models.patient import Patient, PatientDeleter
+from models.patient import Patient
 from models.diagnosis import Diagnosis
 from models.session import Session
 from utils.auth import log_action
@@ -61,7 +61,7 @@ def cmd_login(args) -> None:
 
 @log_action
 def cmd_list_patients(args) -> None:
-    patients = storage.get_all_patients()
+    patients = Patient.get_all()
     if not patients:
         write("No patients found.")
         return
