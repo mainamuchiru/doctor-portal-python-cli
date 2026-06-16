@@ -1,0 +1,242 @@
+{
+    "38699c68-590d-44cc-8cd1-08f73fe346c4": {
+        "session_id": "38699c68-590d-44cc-8cd1-08f73fe346c4",
+        "patient_id": "PAT2001",
+        "doctor_id": "DOC1005",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Pneumonia",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "fef8113b-6c80-4930-81c3-9d4f27593df5": {
+        "session_id": "fef8113b-6c80-4930-81c3-9d4f27593df5",
+        "patient_id": "PAT2002",
+        "doctor_id": "DOC1007",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Hypertension",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "c55f3aa9-24a0-48f4-a243-b3f3ae65066e": {
+        "session_id": "c55f3aa9-24a0-48f4-a243-b3f3ae65066e",
+        "patient_id": "PAT2003",
+        "doctor_id": "DOC1011",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Diabetes",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "ec4d1e4c-b665-4d1f-ba93-84859098bd6f": {
+        "session_id": "ec4d1e4c-b665-4d1f-ba93-84859098bd6f",
+        "patient_id": "PAT2004",
+        "doctor_id": "DOC1003",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Malaria",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "d91e9bf7-9e2b-4aeb-9e93-0910f9ae39ec": {
+        "session_id": "d91e9bf7-9e2b-4aeb-9e93-0910f9ae39ec",
+        "patient_id": "PAT2005",
+        "doctor_id": "DOC1010",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Diabetes",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "81fca5f8-771c-4616-91c5-3c1a00728007": {
+        "session_id": "81fca5f8-771c-4616-91c5-3c1a00728007",
+        "patient_id": "PAT2006",
+        "doctor_id": "DOC1016",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Common Cold",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "f625d6a1-932e-4358-b273-573c8ddacb2f": {
+        "session_id": "f625d6a1-932e-4358-b273-573c8ddacb2f",
+        "patient_id": "PAT2007",
+        "doctor_id": "DOC1001",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Malaria",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "c05ac062-332a-4796-b215-c6854271a1ed": {
+        "session_id": "c05ac062-332a-4796-b215-c6854271a1ed",
+        "patient_id": "PAT2008",
+        "doctor_id": "DOC1004",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Typhoid Fever",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "5900f46c-6485-442a-bca3-56cd77f64ee0": {
+        "session_id": "5900f46c-6485-442a-bca3-56cd77f64ee0",
+        "patient_id": "PAT2009",
+        "doctor_id": "DOC1014",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Common Cold",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "9715d67e-3f42-4646-bfcd-c665530b4f30": {
+        "session_id": "9715d67e-3f42-4646-bfcd-c665530b4f30",
+        "patient_id": "PAT2010",
+        "doctor_id": "DOC1013",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Hypertension",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "0579bd32-c818-45b0-85b3-65f5751fc920": {
+        "session_id": "0579bd32-c818-45b0-85b3-65f5751fc920",
+        "patient_id": "PAT2011",
+        "doctor_id": "DOC1011",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Common Cold",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "a23a15ab-5abe-4e86-af8d-e9b685adc0d4": {
+        "session_id": "a23a15ab-5abe-4e86-af8d-e9b685adc0d4",
+        "patient_id": "PAT2012",
+        "doctor_id": "DOC1003",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Malaria",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "4e1b1329-f699-4359-8f54-0a98801b031b": {
+        "session_id": "4e1b1329-f699-4359-8f54-0a98801b031b",
+        "patient_id": "PAT2013",
+        "doctor_id": "DOC1004",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Typhoid Fever",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "483cad99-2fec-4dac-aa02-f8a3f15765ce": {
+        "session_id": "483cad99-2fec-4dac-aa02-f8a3f15765ce",
+        "patient_id": "PAT2014",
+        "doctor_id": "DOC1005",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Pneumonia",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "5cd33ee0-ad43-43b6-a4a2-40e1b877724d": {
+        "session_id": "5cd33ee0-ad43-43b6-a4a2-40e1b877724d",
+        "patient_id": "PAT2015",
+        "doctor_id": "DOC1003",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Diabetes",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "a410aafe-64f9-44ff-8d53-f9585e6f3892": {
+        "session_id": "a410aafe-64f9-44ff-8d53-f9585e6f3892",
+        "patient_id": "PAT2016",
+        "doctor_id": "DOC1005",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Diabetes",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "7faf6c72-7761-4cfc-83c9-7f2774b96737": {
+        "session_id": "7faf6c72-7761-4cfc-83c9-7f2774b96737",
+        "patient_id": "PAT2017",
+        "doctor_id": "DOC1006",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Common Cold",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "b0f31c2c-2039-429f-83c0-9400a191e0b5": {
+        "session_id": "b0f31c2c-2039-429f-83c0-9400a191e0b5",
+        "patient_id": "PAT2018",
+        "doctor_id": "DOC1008",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Malaria",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "701c37fa-63a2-4a11-85e1-73d1a4beb6fc": {
+        "session_id": "701c37fa-63a2-4a11-85e1-73d1a4beb6fc",
+        "patient_id": "PAT2019",
+        "doctor_id": "DOC1017",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Malaria",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    },
+    "fd17db42-4c4c-410f-90fb-0d989bd4f2ba": {
+        "session_id": "fd17db42-4c4c-410f-90fb-0d989bd4f2ba",
+        "patient_id": "PAT2020",
+        "doctor_id": "DOC1018",
+        "symptoms": [
+            "fever",
+            "headache"
+        ],
+        "disease": "Diabetes",
+        "prevention": "Rest and fluids",
+        "medication": "Consult pharmacist"
+    }
+}

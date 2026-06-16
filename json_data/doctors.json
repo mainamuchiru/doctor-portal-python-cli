@@ -1,0 +1,128 @@
+{
+    "DOC1001": {
+        "name": "Dr. John Doe",
+        "doctor_id": "DOC1001",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1002": {
+        "name": "Dr. Jane Smith",
+        "doctor_id": "DOC1002",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1003": {
+        "name": "Dr. Robert Brown",
+        "doctor_id": "DOC1003",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1004": {
+        "name": "Dr. Emily Davis",
+        "doctor_id": "DOC1004",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1005": {
+        "name": "Dr. Michael Wilson",
+        "doctor_id": "DOC1005",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1006": {
+        "name": "Dr. Sarah Miller",
+        "doctor_id": "DOC1006",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1007": {
+        "name": "Dr. David Taylor",
+        "doctor_id": "DOC1007",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1008": {
+        "name": "Dr. Jessica Moore",
+        "doctor_id": "DOC1008",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1009": {
+        "name": "Dr. William Anderson",
+        "doctor_id": "DOC1009",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1010": {
+        "name": "Dr. Elizabeth Thomas",
+        "doctor_id": "DOC1010",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1011": {
+        "name": "Dr. Chris Jackson",
+        "doctor_id": "DOC1011",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1012": {
+        "name": "Dr. Ashley White",
+        "doctor_id": "DOC1012",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1013": {
+        "name": "Dr. Matthew Harris",
+        "doctor_id": "DOC1013",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1014": {
+        "name": "Dr. Linda Martin",
+        "doctor_id": "DOC1014",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1015": {
+        "name": "Dr. Joseph Thompson",
+        "doctor_id": "DOC1015",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1016": {
+        "name": "Dr. Susan Garcia",
+        "doctor_id": "DOC1016",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1017": {
+        "name": "Dr. Thomas Martinez",
+        "doctor_id": "DOC1017",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1018": {
+        "name": "Dr. Margaret Robinson",
+        "doctor_id": "DOC1018",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1019": {
+        "name": "Dr. Charles Clark",
+        "doctor_id": "DOC1019",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "DOC1020": {
+        "name": "Dr. Dorothy Rodriguez",
+        "doctor_id": "DOC1020",
+        "password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "role": "doctor"
+    },
+    "admin1": {
+        "name": "System Admin",
+        "admin_id": "admin1",
+        "password": "713bfda78870bf9d1b261f565286f85e97ee614efe5f0faf7c34e7ca4f65baca",
+        "role": "admin"
+    }
+}
