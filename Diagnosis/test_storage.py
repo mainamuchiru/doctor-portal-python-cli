@@ -1,6 +1,7 @@
 import unittest
 import os
-import json from storage import StorageEngine
+import json 
+from storage import StorageEngine
 
 class TestStorageSystem(unittest.TestCase):
     def setUp(self):
@@ -19,9 +20,9 @@ class TestStorageSystem(unittest.TestCase):
             ]
         }
         with open(self.test_kb_file,"w", encoding="utf-8") as f:
-        json.dump(self.dummy_kb_data,f)
+            json.dump(self.dummy_kb_data,f)
 
-        self.storage= StorageEngine(kb_path=self.test_kb_file,diagnosis_path=sel.test_diagnosis_file)
+        self.storage= StorageEngine(kb_path=self.test_kb_file,diagnosis_path=self.test_diagnosis_file)
    
     def tearDown(self):
         """Cleans up and deletes temporary test workspace logs."""
@@ -36,7 +37,7 @@ class TestStorageSystem(unittest.TestCase):
         """Verify that the storage engine successfully reads data from JSON"""
         data = self.storage.load_diagnosis_History()
         self.assertIn("diseases",data)
-        self.assertEqual(data["disease"][0]["name"],"Malaria") 
+        self.assertEqual(data["diseases"][0]["name"],"Malaria") 
 
     def test_search_diseases_by_symptoms(self):
         """Verifies symptoms keyword matching filter results correctly and case-insensitively"""
@@ -44,7 +45,7 @@ class TestStorageSystem(unittest.TestCase):
          self.assertEqual(len(matches),1)
          self.assertEqual(matches[0]["name"],"Malaria")
 
-    def test_save_iagnosis_persistence(self):
+    def test_save_diagnosis_persistence(self):
         """ Verifies writing and appending active diagnosis records to the file system. """
           mock_payload = {
             "session_id": "MOCK-SESS-99",
@@ -87,8 +88,8 @@ class TestStorageSystem(unittest.TestCase):
     def test_load_knowledge_base_file_missing_edge_case(self):
         """EDGE CASE: Verify that is the file is completely missing the system does not crash"""  
         # Force delete the file mid-execution to test missing file boundaries
-        if os.pth.exists(self.test_kb_file):
-            os.remove(Self.tets_kb_file)
+        if os.path.exists(self.test_kb_file):
+            os.remove(Self.test_kb_file)
 
             #Storage.py handles FileNotFoundError gratefully by returning a {"disease": []}
             fallback_data = self.storage.load_diagnosis_History()
