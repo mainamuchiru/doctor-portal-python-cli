@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Alice Mwenda",
+        "doctor_id": "D101",
+        "password": "docpass",
+        "role": "Admin"
+    },
+    {
+        "name": "Brian Karanja",
+        "doctor_id": "D202",
+        "password": "secure123",
+        "role": "Admin"
+    }
+]
