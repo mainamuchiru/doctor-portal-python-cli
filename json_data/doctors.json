@@ -124,5 +124,11 @@
         "admin_id": "admin1",
         "password": "713bfda78870bf9d1b261f565286f85e97ee614efe5f0faf7c34e7ca4f65baca",
         "role": "admin"
+    },
+    "newdoc": {
+        "name": "Dr Test",
+        "doctor_id": "newdoc",
+        "password": "e05f79651d465214e7558a382ed0f0e5a77380a649f4573f3a1036dc4ee10c0b",
+        "role": "doctor"
     }
 }

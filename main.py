@@ -76,7 +76,10 @@ def print_logo():
 
 @log_action
 def cmd_register_doctor(args) -> None:
-    doctor = storage.register_doctor(args.name, args.doctor_id, args.password)
+    pw = getattr(args, "password", None)
+    if not pw:
+        pw = ask("Enter Password", password=True)
+    doctor = storage.register_doctor(args.name, args.doctor_id, pw)
     if not doctor:
         write("[bold red]Error:[/bold red] A doctor with that ID already exists.")
         return
@@ -84,7 +87,10 @@ def cmd_register_doctor(args) -> None:
 
 @log_action
 def cmd_login(args) -> None:
-    user = storage.login_user(args.doctor_id, args.password)
+    pw = getattr(args, "password", None)
+    if not pw:
+        pw = ask("Password", password=True)
+    user = storage.login_user(args.doctor_id, pw)
     if not user:
         write("[bold red]Error:[/bold red] Invalid ID or password.")
         return
@@ -223,13 +229,13 @@ def build_parser() -> argparse.ArgumentParser:
     reg = subparsers.add_parser("register", help="Register a new doctor")
     reg.add_argument("--name", required=True)
     reg.add_argument("--doctor-id", required=True)
-    reg.add_argument("--password", required=True)
+    reg.add_argument("--password")
     reg.set_defaults(func=cmd_register_doctor)
 
     # Login
     login = subparsers.add_parser("login", help="Login")
     login.add_argument("--doctor-id", required=True)
-    login.add_argument("--password", required=True)
+    login.add_argument("--password")
     login.set_defaults(func=cmd_login)
 
     # Add Patient
@@ -257,6 +263,20 @@ def build_parser() -> argparse.ArgumentParser:
 def main():
     print_logo()
     parser = build_parser()
+    # Allow numeric aliases for top-level commands (e.g. `1` -> `register`)
+    numeric_map = {
+        "1": "register",
+        "2": "login",
+        "3": "add-patient",
+        "4": "list-patients",
+        "5": "diagnose",
+        "6": "interactive",
+    }
+
+    # If the first CLI arg is a numeric alias, rewrite argv so argparse sees the mapped command
+    if len(sys.argv) > 1 and sys.argv[1] in numeric_map:
+        sys.argv[1] = numeric_map[sys.argv[1]]
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         try:
@@ -267,7 +287,19 @@ def main():
             else:
                 write(f"An error occurred: {e}")
     else:
-        parser.print_help()
+        # No subcommand provided. If the user ran `python3 main.py` with no
+        # arguments, start the interactive menu so they can select options
+        # by number (1,2,3...). Otherwise show help.
+        if len(sys.argv) == 1:
+            try:
+                interactive_menu()
+            except Exception as e:
+                if console:
+                    console.print_exception()
+                else:
+                    write(f"An error occurred: {e}")
+        else:
+            parser.print_help()
 
 if __name__ == "__main__":
     main()
