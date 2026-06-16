@@ -56,7 +56,7 @@ class Session:
     
 
     def update_status(self, new_status):
-        valid_statuses = ["scheduled", "in-progress", "completed", "cancelled"]
+        valid_statuses = ["referred", "in-progress", "completed", "cancelled"]
         if new_status not in valid_statuses:
             raise ValueError(f"Status must be one of {valid_statuses}")
         self.status = new_status
@@ -83,20 +83,6 @@ class Session:
         print(f"Session ended at: {self._end_time}")
         return self._end_time
 
-    
-
-    @classmethod
-    def search_session(cls, **criteria):
-        
-        if not os.path.exists(cls.STORAGE_FILE):
-            print("No storage file found.")
-            return []
-        with open(cls.STORAGE_FILE, "r") as f:
-            all_sessions = json.load(f)
-        return [
-            s for s in all_sessions.values()
-            if all(s.get(k) == v for k, v in criteria.items())
-        ]
 
     @classmethod
     def load_all_sessions(cls):
