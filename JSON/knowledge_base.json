@@ -13,7 +13,7 @@
             "medication":"Antibiotics (Isoniazid Rifampicin) for 6 months"
         },
         {
-            "name":"Typoid",
+            "name":"Typhoid",
             "symptoms":["chronic cough","headache","abdominal pain","constipation"],
             "prevention":"Drink safe treated water, proper sanitation, handwashing",
             "medication":"Antibiotics (Ciprofloxacin or Azithromycin)"
@@ -40,7 +40,7 @@
             "name":"Amoebiasis",
             "symptoms":["abdominal pain","bloody diarrhea","fatigue","weight loss"],
             "prevention":"Proper sewage disposal, wash vegetables and fruits with clean water",
-            "medication":"Mentronidazole()Flagyl"
+            "medication":"Mentronidazole(Flagyl)"
         }
     ]
 }
