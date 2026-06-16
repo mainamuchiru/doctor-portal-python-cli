@@ -6,6 +6,8 @@ from typing import Optional, List, Any
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+import getpass
+
 from data import storage
 from models.patient import Patient
 from models.diagnosis import Diagnosis
@@ -29,6 +31,30 @@ def write(message: str = "") -> None:
         console.print(message)
     else:
         print(message)
+
+
+def ask(prompt_text: str, choices: Optional[list] = None, default: Optional[str] = None, password: bool = False) -> str:
+    """Unified input prompt with fallback when Rich is unavailable."""
+    if Prompt:
+        if password:
+            return Prompt.ask(prompt_text, password=True)
+        if choices:
+            return Prompt.ask(prompt_text, choices=choices, default=default)
+        return Prompt.ask(prompt_text, default=default)
+
+    # Fallback to builtin input/getpass
+    if password:
+        return getpass.getpass(f"{prompt_text}: ")
+
+    while True:
+        if default:
+            resp = input(f"{prompt_text} [{default}]: ") or default
+        else:
+            resp = input(f"{prompt_text}: ")
+        resp = resp.strip()
+        if not choices or resp in choices:
+            return resp
+        print(f"Please enter one of: {', '.join(choices)}")
 
 LOGO = """
  ██████╗██╗     ██╗███╗   ██╗██╗ ██████╗ 
@@ -121,26 +147,25 @@ def interactive_menu():
             write("2. Login to Portal")
             write("3. Exit System")
             
-            choice = Prompt.ask("Select an option (1-3)", choices=["1", "2", "3"], default="3")
-            
-            if choice == "1":
-                write("\n[bold]-- Doctor Registration --[/bold]")
-                name = Prompt.ask("Enter Full Name")
-                doc_id = Prompt.ask("Enter Desired Doctor ID")
-                pw = Prompt.ask("Enter Password", password=True)
-                cmd_register_doctor(argparse.Namespace(name=name, doctor_id=doc_id, password=pw))
-            elif choice == "2":
-                write("\n[bold]-- Doctor Login --[/bold]")
-                doc_id = Prompt.ask("Doctor ID")
-                pw = Prompt.ask("Password", password=True)
-                user = storage.login_user(doc_id, pw)
-                if user:
-                    write(f"\n[bold green]Success! Welcome Dr. {user.name}[/bold green]")
-                else:
-                    write("\n[bold red]Error: Invalid credentials.[/bold red]")
-            elif choice == "3":
-                write("Exiting... Goodbye!")
-                break
+            choice = ask("Select an option (1-3)", choices=["1", "2", "3"], default="3")
+        if choice == "1" or choice.lower() == "register":
+            write("\n[bold]-- Doctor Registration --[/bold]")
+            name = ask("Enter Full Name")
+            doc_id = ask("Enter Desired Doctor ID")
+            pw = ask("Enter Password", password=True)
+            cmd_register_doctor(argparse.Namespace(name=name, doctor_id=doc_id, password=pw))
+        elif choice == "2":
+            write("\n[bold]-- Doctor Login --[/bold]")
+            doc_id = ask("Doctor ID")
+            pw = ask("Password", password=True)
+            user = storage.login_user(doc_id, pw)
+            if user:
+                write(f"\n[bold green]Success! Welcome Dr. {user.name}[/bold green]")
+            else:
+                write("\n[bold red]Error: Invalid credentials.[/bold red]")
+        elif choice == "3":
+            write("Exiting... Goodbye!")
+            break
         else:
             write(f"\n[bold blue]=== MAIN MENU (Dr. {user.name}) ===[/bold blue]")
             write("1. Add New Patient")
@@ -150,44 +175,43 @@ def interactive_menu():
             write("5. Logout")
             write("6. Exit System")
             
-            choice = Prompt.ask("Select an option (1-6)", choices=["1", "2", "3", "4", "5", "6"], default="2")
+            choice = ask("Select an option (1-6)", choices=["1", "2", "3", "4", "5", "6"], default="2")
+        if choice == "1" or choice.lower() == "add":
+            write("\n[bold]-- Add New Patient --[/bold]")
+            name = ask("Patient Name")
+            phone = ask("Phone Number")
+            dob = ask("DOB (YYYY-MM-DD)")
+            h = ask("Height (cm, optional)", default="")
+            w = ask("Weight (kg, optional)", default="")
+            cmd_add_patient(argparse.Namespace(name=name, phone=phone, dob=dob, height=h, weight=w))
+        elif choice == "2":
+            cmd_list_patients()
+        elif choice == "3":
+            write("\n[bold]-- Match Diagnosis --[/bold]")
+            syms = ask("Enter symptoms separated by commas (e.g. fever, headache)")
+            cmd_match_diagnosis(argparse.Namespace(symptoms=[s.strip() for s in syms.split(",") if s.strip()]))
+        elif choice == "4":
+            write("\n[bold]-- Record Session --[/bold]")
+            patient_id = ask("Enter Patient ID")
+            patient = Patient.get_by_id(patient_id)
+            if not patient:
+                write("[bold red]Error: Patient not found.[/bold red]")
+                continue
             
-            if choice == "1":
-                write("\n[bold]-- Add New Patient --[/bold]")
-                name = Prompt.ask("Patient Name")
-                phone = Prompt.ask("Phone Number")
-                dob = Prompt.ask("DOB (YYYY-MM-DD)")
-                h = Prompt.ask("Height (cm, optional)", default="")
-                w = Prompt.ask("Weight (kg, optional)", default="")
-                cmd_add_patient(argparse.Namespace(name=name, phone=phone, dob=dob, height=h, weight=w))
-            elif choice == "2":
-                cmd_list_patients()
-            elif choice == "3":
-                write("\n[bold]-- Match Diagnosis --[/bold]")
-                syms = Prompt.ask("Enter symptoms separated by commas (e.g. fever, headache)")
-                cmd_match_diagnosis(argparse.Namespace(symptoms=[s.strip() for s in syms.split(",") if s.strip()]))
-            elif choice == "4":
-                write("\n[bold]-- Record Session --[/bold]")
-                patient_id = Prompt.ask("Enter Patient ID")
-                patient = Patient.get_by_id(patient_id)
-                if not patient:
-                    write("[bold red]Error: Patient not found.[/bold red]")
-                    continue
-                
-                diagnosis = Prompt.ask("Enter Final Diagnosis")
-                notes = Prompt.ask("Enter Session Notes")
-                
-                session = Session(patient_id, user.user_id, diagnosis)
-                session.start_session()
-                session.add_notes(notes)
-                session.end_session()
-                write(f"[bold green]Session recorded successfully for {patient.name}.[/bold green]")
-            elif choice == "5":
-                user = None
-                write("Logged out successfully.")
-            elif choice == "6":
-                write("Exiting... Goodbye!")
-                sys.exit(0)
+            diagnosis = ask("Enter Final Diagnosis")
+            notes = ask("Enter Session Notes")
+            
+            session = Session(patient_id, user.user_id, diagnosis)
+            session.start_session()
+            session.add_notes(notes)
+            session.end_session()
+            write(f"[bold green]Session recorded successfully for {patient.name}.[/bold green]")
+        elif choice == "5":
+            user = None
+            write("Logged out successfully.")
+        elif choice == "6":
+            write("Exiting... Goodbye!")
+            sys.exit(0)
 
 # --- Parser Setup ---
 
