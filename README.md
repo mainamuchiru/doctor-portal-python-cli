@@ -21,8 +21,12 @@ A modular command-line doctor portal for managing doctors, patients, sessions, a
 ```text
 doctor-portal-python-cli/
 ├── diagnosis/
-│   ├── __init__.py
+│   ├── init.py
 │   └── diagnosis.py
+│   └── doctor.py
+│   └── patient.py
+│   └── session.py
+|   └── storage.py
 ├── doctor/
 │   ├── __init__.py
 │   └── doctor.py
@@ -61,7 +65,7 @@ pipenv install
 pipenv shell
 
 ## VIDEO 
-This video below explains the project structure, how to run the application, and how to execute tests.
+https://www.loom.com/share/96cd0312266a47e788c86c149d6753a0
 
 [![Doctor Portal Python CLI]()]
 
