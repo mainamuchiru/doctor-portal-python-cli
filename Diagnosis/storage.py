@@ -16,9 +16,9 @@ DISEASES_FILE = JSON_DIR / "knowledge_base.json"
 
 
 def load_json(filename: Path) -> Dict[str, Any]:
+    if not filename.exists():
+        return {}
     try:
-        if not filename.exists():
-            return {}
         with filename.open("r", encoding="utf-8") as file:
             data = json.load(file)
         return data if isinstance(data, dict) else {}
@@ -31,24 +31,31 @@ def save_json(filename: Path, data: Dict[str, Any]) -> None:
     with filename.open("w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
 
+ 
 
 def register_doctor(name: str, doctor_id: str, password: str) -> Optional[Doctor]:
-    doctor = Doctor(name, doctor_id, password)
-    if not doctor.name or not doctor.doctor_id or not doctor.password:
+    name = name.strip()
+    doctor_id = doctor_id.strip()
+
+    if not name or not doctor_id or not password:
         raise ValueError("Doctor name, ID, and password are required.")
 
     doctors = load_json(DOCTORS_FILE)
-    if doctor.doctor_id in doctors:
-        return None
 
-    doctors[doctor.doctor_id] = doctor.to_dict()
+    if doctor_id in doctors:
+        raise ValueError("Doctor ID already exists.")
+
+    doctor = Doctor(name, doctor_id, password)
+    doctors[doctor_id] = doctor.to_dict()
     save_json(DOCTORS_FILE, doctors)
+
     return doctor
 
 
 def login_doctor(doctor_id: str, password: str) -> Optional[Doctor]:
     doctors = load_json(DOCTORS_FILE)
     record = doctors.get(doctor_id)
+
     if not record:
         return None
 
@@ -58,14 +65,18 @@ def login_doctor(doctor_id: str, password: str) -> Optional[Doctor]:
 
 def update_doctor(doctor_id: str, new_name: str = "", new_password: str = "") -> bool:
     doctors = load_json(DOCTORS_FILE)
+
     if doctor_id not in doctors:
         return False
 
     doctor = Doctor.from_dict(doctors[doctor_id])
     doctor.update(new_name, new_password)
+
     doctors[doctor_id] = doctor.to_dict()
     save_json(DOCTORS_FILE, doctors)
     return True
+
+
 
 
 def save_patient(patient: Patient) -> Patient:
@@ -107,24 +118,22 @@ def update_patient(
     new_weight: str = "",
 ) -> bool:
     patients = load_json(PATIENTS_FILE)
+
     if patient_id not in patients:
         return False
 
     patient = Patient.from_dict(patients[patient_id])
     patient.update(new_name, new_phone, new_dob, new_height, new_weight)
     patient.validate()
+
     patients[patient_id] = patient.to_dict()
     save_json(PATIENTS_FILE, patients)
     return True
 
 
-def search_patients_by_name(name: str) -> List[Patient]:
-    needle = name.lower().strip()
-    return [patient for patient in get_all_patients() if needle in patient.name.lower()]
-
-
 def delete_patient(patient_id: str) -> bool:
     patients = load_json(PATIENTS_FILE)
+
     if patient_id not in patients:
         return False
 
@@ -153,45 +162,8 @@ def save_diagnosis(diagnosis_dict: Dict[str, Any]) -> Dict[str, Any]:
     return diagnosis_dict
 
 
-def get_patient_diagnoses(patient_id: str) -> List[Dict[str, Any]]:
-    diagnoses = load_json(DIAGNOSES_FILE)
-    return [d for d in diagnoses.values() if d.get("patient_id") == patient_id]
-
-
 def save_session(session_dict: Dict[str, Any]) -> Dict[str, Any]:
     sessions = load_json(SESSIONS_FILE)
     sessions[session_dict["session_id"]] = session_dict
     save_json(SESSIONS_FILE, sessions)
     return session_dict
-
-
-def get_patient_sessions(patient_id: str) -> List[Dict[str, Any]]:
-    sessions = load_json(SESSIONS_FILE)
-    return [s for s in sessions.values() if s.get("patient_id") == patient_id]
-
-
-def search_diseases_by_symptom(symptom: str):
-    if not DISEASES_FILE.exists():
-        return []
-
-    try:
-        with DISEASES_FILE.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-    except json.JSONDecodeError:
-        return []
-
-    symptoms_input = [s.strip().lower() for s in symptom.split(",")]
-
-    diseases = data.get("diseases", [])
-    matches = []
-
-    for disease in diseases:
-        if not isinstance(disease, dict):
-            continue
-
-        disease_symptoms = [s.lower() for s in disease.get("symptoms", [])]
-
-        if any(s in disease_symptoms for s in symptoms_input):
-            matches.append(disease)
-
-    return matches

@@ -2,6 +2,7 @@ import sys
 import json
 from pathlib import Path
 import getpass
+
 import Diagnosis.storage as storage
 from Diagnosis.session import Session
 from Diagnosis.diagnosis import Diagnosis
@@ -36,7 +37,7 @@ def logout():
 
 def login():
     doctor_id = prompt("Doctor ID: ")
-    password = getpass.getpass("Password: ") 
+    password = getpass.getpass("Password: ")
 
     doctor = storage.login_doctor(doctor_id, password)
 
@@ -56,7 +57,26 @@ def require_login():
         print("[!] Please login first using: python main.py login")
         return None
 
-    return data
+    return storage.login_doctor(data["doctor_id"], "") or data
+
+
+def register_doctor():
+    print("[+] Register New Doctor")
+
+    name = prompt("Name: ")
+    doctor_id = prompt("Doctor ID: ")
+    password = getpass.getpass("Password: ")
+    confirm = getpass.getpass("Confirm Password: ")
+
+    if password != confirm:
+        print("[!] Passwords do not match")
+        return
+
+    try:
+        storage.register_doctor(name, doctor_id, password)
+        print("[OK] Doctor registered successfully")
+    except Exception as e:
+        print(f"[!] {e}")
 
 
 def add_patient():
@@ -147,13 +167,16 @@ def delete_patient():
 
 def main():
     if len(sys.argv) < 2:
-        print("Commands: login | logout | add-patient | list-patients | diagnose | delete-patient")
+        print("Commands: login | register-doctor | logout | add-patient | list-patients | diagnose | delete-patient")
         return
 
     command = sys.argv[1]
 
     if command == "login":
         login()
+
+    elif command == "register-doctor":
+        register_doctor()
 
     elif command == "logout":
         logout()
