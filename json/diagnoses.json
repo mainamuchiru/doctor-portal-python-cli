@@ -34,5 +34,14 @@
         "disease": "Bilharzia",
         "prevention": "Avoid swimming or wading in fresh water infested with snails",
         "medication": "Praziquantel"
+    },
+    "a9aa4465-390e-4ef8-95cc-7df8ea985067": {
+        "session_id": "a9aa4465-390e-4ef8-95cc-7df8ea985067",
+        "patient_id": "b54cabad-9980-4400-a387-377597e7c59c",
+        "doctor_id": "123",
+        "symptoms": "fever",
+        "disease": "Malaria",
+        "prevention": "Use instecticide-treated nets, clear stagnant water.",
+        "medication": "Artemisinin-based Combination Therapy (ACT)"
     }
 }

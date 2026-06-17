@@ -167,3 +167,33 @@ def save_session(session_dict: Dict[str, Any]) -> Dict[str, Any]:
     sessions[session_dict["session_id"]] = session_dict
     save_json(SESSIONS_FILE, sessions)
     return session_dict
+
+
+def search_diseases_by_symptom(symptom: str):
+    if not DISEASES_FILE.exists():
+        return []
+
+    try:
+        with DISEASES_FILE.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+    except json.JSONDecodeError:
+        return []
+
+    symptoms_input = [s.strip().lower() for s in symptom.split(",")]
+
+    diseases = data.get("diseases", [])
+    matches = []
+
+    for disease in diseases:
+        if not isinstance(disease, dict):
+            continue
+
+        disease_symptoms = [
+            s.strip().lower()
+            for s in disease.get("symptoms", [])
+        ]
+
+        if any(symptom in disease_symptoms for symptom in symptoms_input):
+            matches.append(disease)
+
+    return matches

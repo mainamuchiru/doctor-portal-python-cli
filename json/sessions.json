@@ -139,5 +139,21 @@
         ],
         "start_time": "2026-06-16 19:08:31",
         "end_time": "2026-06-16 19:08:47"
+    },
+    "a9aa4465-390e-4ef8-95cc-7df8ea985067": {
+        "session_id": "a9aa4465-390e-4ef8-95cc-7df8ea985067",
+        "patient_id": "b54cabad-9980-4400-a387-377597e7c59c",
+        "doctor_id": "123",
+        "diagnosis": "Malaria",
+        "status": "completed",
+        "date_time": "2026-06-17 16:24:36",
+        "notes": [
+            {
+                "timestamp": "2026-06-17 16:24:44",
+                "note": "patient was ill"
+            }
+        ],
+        "start_time": "2026-06-17 16:24:36",
+        "end_time": "2026-06-17 16:24:44"
     }
 }
