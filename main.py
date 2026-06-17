@@ -1,7 +1,7 @@
 import sys
 import json
 from pathlib import Path
-
+import getpass
 import Diagnosis.storage as storage
 from Diagnosis.session import Session
 from Diagnosis.diagnosis import Diagnosis
@@ -36,7 +36,7 @@ def logout():
 
 def login():
     doctor_id = prompt("Doctor ID: ")
-    password = prompt("Password: ")
+    password = getpass.getpass("Password: ") 
 
     doctor = storage.login_doctor(doctor_id, password)
 
